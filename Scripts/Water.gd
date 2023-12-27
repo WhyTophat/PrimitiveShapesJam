@@ -1,5 +1,11 @@
-extends Node2D
+extends CharacterBody2D
 
+var speed = 15
 
-func position_set(positionsetter):
+func _process(delta):
+	velocity = Vector2(speed,0).rotated(rotation)
+	move_and_collide(velocity)
+
+func setter(positionsetter, anglesetter):
 	position = positionsetter
+	rotation = anglesetter

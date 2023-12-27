@@ -1,16 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://ujeywofp2uv3"]
+[gd_scene load_steps=4 format=3 uid="uid://ujeywofp2uv3"]
 
 [ext_resource type="Script" path="res://Scripts/Water.gd" id="1_lyf2k"]
 [ext_resource type="PackedScene" uid="uid://cnn5yni2ejv5e" path="res://Reuse/Polygon.tscn" id="1_svyhi"]
 
-[node name="Water" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hhve"]
+size = Vector2(8, 8)
+
+[node name="Water" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 12
 script = ExtResource("1_lyf2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2hhve")
 
 [node name="Polygon" parent="." instance=ExtResource("1_svyhi")]
 gizmo_extents = 6.0
 Sides = 4
 
 [node name="Shape" parent="Polygon" index="0"]
-color = Color(0.188235, 0.611765, 0.772549, 1)
+color = Color(0.360784, 0.545098, 0.576471, 1)
 
 [editable path="Polygon"]

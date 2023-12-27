@@ -1,4 +1,3 @@
-@tool
 extends CharacterBody2D
 
 var canshoot = true
@@ -16,21 +15,16 @@ var canshoot = true
 
 
 func _physics_process(_delta):
-	if Engine.is_editor_hint():
-		if Refresh == true:
-			Refresh = false
-			queue_redraw()
-	if !(Engine.is_editor_hint()):
-		_movement()
-		$Shooter.look_at(get_global_mouse_position())
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and canshoot == true:
-			canshoot = false
-			$FireTimer.start(Firerate)
-			shoot()
+	_movement()
+	$Shooter.look_at(get_global_mouse_position())
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and canshoot == true:
+		canshoot = false
+		$FireTimer.start(Firerate)
+		shoot()
 
 func shoot():
 	var BulletScene = Bullet.instantiate()
-	BulletScene.position_set(global_position)
+	BulletScene.setter($Shooter/EmissionPoint.global_position, $Shooter.rotation)
 	get_parent().add_child(BulletScene)
 
 func _movement():
@@ -57,9 +51,6 @@ func _movement():
 		if velocity.y < 0:
 			velocity.y += Accel
 	move_and_slide()
-
-func _draw():
-	draw_circle(Vector2.ZERO, $Circle.gizmo_extents, Color.RED)
 
 func _on_fire_timer_timeout():
 	canshoot = true

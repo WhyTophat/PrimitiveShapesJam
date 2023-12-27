@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://7ijo3fqa0b81"]
+[gd_scene load_steps=5 format=3 uid="uid://7ijo3fqa0b81"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ygnj2"]
 [ext_resource type="PackedScene" uid="uid://ujeywofp2uv3" path="res://Reuse/Water.tscn" id="2_tqaru"]
+[ext_resource type="PackedScene" uid="uid://bwtnhuknl3iax" path="res://Reuse/Circle.tscn" id="3_vgl76"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pfujj"]
 radius = 24.0
@@ -10,17 +11,27 @@ radius = 24.0
 script = ExtResource("1_ygnj2")
 Bullet = ExtResource("2_tqaru")
 
-[node name="Circle" type="Marker2D" parent="."]
-gizmo_extents = 24.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_pfujj")
-
 [node name="Shooter" type="Node2D" parent="."]
 
 [node name="Shape" type="Polygon2D" parent="Shooter"]
-color = Color(1, 0, 0, 1)
+color = Color(0.141176, 0.239216, 0.360784, 1)
 polygon = PackedVector2Array(40, -8, 16, -8, 16, 8, 40, 8)
+
+[node name="EmissionPoint" type="Marker2D" parent="Shooter"]
+position = Vector2(32, 0)
+gizmo_extents = 8.0
+
+[node name="Circle" parent="." instance=ExtResource("3_vgl76")]
+BodyColor = "#243d5c"
+
+[node name="Circle2" parent="." instance=ExtResource("3_vgl76")]
+gizmo_extents = 16.0
+BodyColor = "#5c8b93"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_pfujj")
+debug_color = Color(0.776471, 0.360784, 0.654902, 0.419608)
 
 [node name="FireTimer" type="Timer" parent="."]
 

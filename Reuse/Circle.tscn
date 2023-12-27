@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwtnhuknl3iax"]
+
+[ext_resource type="Script" path="res://Scripts/Circle.gd" id="1_df0mg"]
+
+[node name="Circle" type="Marker2D"]
+gizmo_extents = 24.0
+script = ExtResource("1_df0mg")
+BodyColor = null
