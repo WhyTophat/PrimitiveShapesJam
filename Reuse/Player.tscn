@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://7ijo3fqa0b81"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ygnj2"]
+[ext_resource type="PackedScene" uid="uid://ujeywofp2uv3" path="res://Reuse/Water.tscn" id="2_tqaru"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pfujj"]
+radius = 24.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ygnj2")
+Bullet = ExtResource("2_tqaru")
+
+[node name="Circle" type="Marker2D" parent="."]
+gizmo_extents = 24.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pfujj")
+
+[node name="Shooter" type="Node2D" parent="."]
+
+[node name="Shape" type="Polygon2D" parent="Shooter"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(40, -8, 16, -8, 16, 8, 40, 8)
+
+[node name="FireTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
