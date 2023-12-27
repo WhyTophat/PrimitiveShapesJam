@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjb5d1tt5cof0"]
+
+[ext_resource type="Script" path="res://Scripts/Bacterium.gd" id="1_aigbf"]
+[ext_resource type="PackedScene" uid="uid://bwtnhuknl3iax" path="res://Reuse/Circle.tscn" id="2_mbrlv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_isp27"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_psmq0"]
+
+[node name="Bacterium" type="RigidBody2D" groups=["Bacterium"]]
+collision_mask = 7
+mass = 1000.0
+gravity_scale = 0.0
+max_contacts_reported = 15
+contact_monitor = true
+script = ExtResource("1_aigbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_isp27")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+
+[node name="EmissionPoint" type="Marker2D" parent="SpawnPoint"]
+position = Vector2(24, 0)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Age" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Circle2" parent="." instance=ExtResource("2_mbrlv")]
+gizmo_extents = 10.0
+BodyColor = "#d4804d"
+
+[node name="Circle" parent="." instance=ExtResource("2_mbrlv")]
+z_index = 1
+gizmo_extents = 8.0
+BodyColor = "#e0c872"
+
+[node name="Area2D" type="Area2D" parent="." groups=["Bacterium"]]
+collision_layer = 4
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_psmq0")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="Age" to="." method="_on_age_timeout"]

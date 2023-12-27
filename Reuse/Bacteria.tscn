@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://61vah7y3jd32"]
+
+[ext_resource type="PackedScene" uid="uid://bjb5d1tt5cof0" path="res://Reuse/Bacterium.tscn" id="1_j13h7"]
+
+[node name="Bacteria Culture" type="Node2D"]
+
+[node name="Bacterium" parent="." instance=ExtResource("1_j13h7")]
+position = Vector2(1008, 520)

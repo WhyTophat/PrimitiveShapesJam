@@ -1,9 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwt001lp7pwq2"]
+[gd_scene load_steps=3 format=3 uid="uid://bwt001lp7pwq2"]
 
 [ext_resource type="PackedScene" uid="uid://7ijo3fqa0b81" path="res://Reuse/Player.tscn" id="1_lcmrp"]
+[ext_resource type="PackedScene" uid="uid://61vah7y3jd32" path="res://Reuse/Bacteria.tscn" id="2_iqy4t"]
 
 [node name="Test" type="Node2D"]
+
+[node name="StaticBody2D" type="Area2D" parent="." groups=["Wall"]]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionPolygon2D4" type="Polygon2D" parent="StaticBody2D"]
+color = Color(0.168627, 0.156863, 0.129412, 1)
+polygon = PackedVector2Array(2264, -248, 2272, 1432, -416, 1392, -376, -272)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-48, -216, -280, -136, -224, 1264, 2184, 1296, 2112, -184, -8, -152, -8, -296, 2224, -272, 2280, 1392, -376, 1376, -368, -208, -56, -280)
 
 [node name="Player" parent="." instance=ExtResource("1_lcmrp")]
 position = Vector2(848, 456)
 Firerate = 0.05
+
+[node name="Bacteria Culture" parent="." instance=ExtResource("2_iqy4t")]

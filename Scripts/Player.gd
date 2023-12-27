@@ -36,20 +36,24 @@ func _movement():
 		if velocity.x > (Topspeed * dirx):
 			velocity.x -= Accel
 	else:
-		if velocity.x > 0:
+		if velocity.x > 100:
 			velocity.x -= Accel
-		if velocity.x < 0:
+		elif velocity.x < -100:
 			velocity.x += Accel
+		else:
+			velocity.x = 0
 	if diry:
 		if velocity.y < (Topspeed * diry):
 			velocity.y += Accel
 		if velocity.y > (Topspeed * diry):
 			velocity.y -= Accel
 	else:
-		if velocity.y > 0:
+		if velocity.y > 100:
 			velocity.y -= Accel
-		if velocity.y < 0:
+		elif velocity.y < -100:
 			velocity.y += Accel
+		else:
+			velocity.y = 0
 	move_and_slide()
 
 func _on_fire_timer_timeout():

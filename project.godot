@@ -28,10 +28,9 @@ folder_colors={
 
 [layer_names]
 
-2d_physics/layer_1="Player"
+2d_physics/layer_1="Player and Enemy"
 2d_physics/layer_2="Bullet"
-2d_physics/layer_3="Enemy"
-2d_physics/layer_4="Walls"
+2d_physics/layer_3="Walls"
 
 [rendering]
 
