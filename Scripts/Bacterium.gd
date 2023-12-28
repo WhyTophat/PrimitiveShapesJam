@@ -1,15 +1,17 @@
 extends RigidBody2D
 
-@export var startingtime = 0
+var startingtime = 0
 var rng = RandomNumberGenerator.new()
 var size = 1
 var testsize = 1
 var canspawn = true
 var scalefactor = 1.2
-var maxhp = 15
-var hp = 15
+var maxhp = 150
+var hp = 150
+@export var hptextscene:PackedScene
 
 func _process(delta):
+	var hptext = hptextscene.instantiate()
 	testsize = 1
 	var setscale = Vector2((scalefactor * size),(scalefactor * size))
 	$CollisionShape2D.scale = setscale
@@ -22,8 +24,10 @@ func _process(delta):
 		if i.is_in_group("Wall"):
 			self.queue_free()
 		if i.is_in_group("Bullet"):
-			hp -=1
-			print("hit")
+			var animnum = rng.randi_range(1,3)
+			hp -=10
+			hptext.setspawnparams(animnum, hp, global_position)
+			
 	if testsize > size and testsize <= 6:
 		size = testsize
 		hp = maxhp

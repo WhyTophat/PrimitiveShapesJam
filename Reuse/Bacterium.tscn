@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjb5d1tt5cof0"]
+[gd_scene load_steps=6 format=3 uid="uid://bjb5d1tt5cof0"]
 
 [ext_resource type="Script" path="res://Scripts/Bacterium.gd" id="1_aigbf"]
+[ext_resource type="PackedScene" uid="uid://bqqpquemfsc2b" path="res://Reuse/DamageText.tscn" id="2_jq378"]
 [ext_resource type="PackedScene" uid="uid://bwtnhuknl3iax" path="res://Reuse/Circle.tscn" id="2_mbrlv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_isp27"]
@@ -16,6 +17,7 @@ gravity_scale = 0.0
 max_contacts_reported = 15
 contact_monitor = true
 script = ExtResource("1_aigbf")
+hptextscene = ExtResource("2_jq378")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_isp27")
