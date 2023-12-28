@@ -27,7 +27,7 @@ func _process(delta):
 			var animnum = rng.randi_range(1,3)
 			hp -=10
 			hptext.setspawnparams(animnum, hp, global_position)
-			
+			add_child(hptext)
 	if testsize > size and testsize <= 6:
 		size = testsize
 		hp = maxhp
@@ -37,7 +37,7 @@ func _process(delta):
 
 func _ready():
 	hp = maxhp
-	startingtime = $SpawnTimer.wait_time
+	startingtime = size * 1.6
 
 func spawn():
 	var spawntimerrng = rng.randf_range(-1, 1)

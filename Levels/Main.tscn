@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://30cnssvqouh4"]
+[gd_scene load_steps=4 format=3 uid="uid://30cnssvqouh4"]
 
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_7gwh4"]
 [ext_resource type="PackedScene" uid="uid://7ijo3fqa0b81" path="res://Reuse/Player.tscn" id="1_8rff0"]
 [ext_resource type="Script" path="res://Scripts/CameraChanger.gd" id="1_v3usy"]
 
 [node name="Main Scene" type="Node2D"]
+script = ExtResource("1_7gwh4")
 
 [node name="Collision" type="Node2D" parent="."]
 

@@ -8,7 +8,7 @@ var canshoot = true
 @export_category("Player Stats")
 @export var Topspeed = 300
 @export var Accel = 50
-@export var Firerate = .2
+@export var Firerate = .15
 
 @export_category("Scenes")
 @export var Bullet:PackedScene
