@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 15
+var speed = 7
 
 func _process(delta):
 	velocity = Vector2(speed,0).rotated(rotation)
@@ -11,5 +11,9 @@ func setter(positionsetter, anglesetter):
 	rotation = anglesetter
 
 func _on_area_2d_area_entered(area):
-	#queue_free()
-	pass
+	if area.is_in_group("Bacterium") or area.is_in_group("Wall"):
+		await get_tree().process_frame
+		queue_free()
+
+func _on_timer_timeout():
+	queue_free()

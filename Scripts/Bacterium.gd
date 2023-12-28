@@ -6,8 +6,8 @@ var size = 1
 var testsize = 1
 var canspawn = true
 var scalefactor = 1.2
-var maxhp = 100
-var hp = 100
+var maxhp = 15
+var hp = 15
 
 func _process(delta):
 	testsize = 1
@@ -23,7 +23,7 @@ func _process(delta):
 			self.queue_free()
 		if i.is_in_group("Bullet"):
 			hp -=1
-			i.queue_free()
+			print("hit")
 	if testsize > size and testsize <= 6:
 		size = testsize
 		hp = maxhp
