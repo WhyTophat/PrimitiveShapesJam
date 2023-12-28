@@ -9,3 +9,7 @@ func _process(delta):
 func setter(positionsetter, anglesetter):
 	position = positionsetter
 	rotation = anglesetter
+
+func _on_area_2d_area_entered(area):
+	#queue_free()
+	pass

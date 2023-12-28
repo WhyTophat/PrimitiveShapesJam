@@ -5,24 +5,34 @@ var rng = RandomNumberGenerator.new()
 var size = 1
 var testsize = 1
 var canspawn = true
-var scalefactor = 1.02
+var scalefactor = 1.2
+var maxhp = 100
+var hp = 100
 
 func _process(delta):
 	testsize = 1
-	$CollisionShape2D.scale = Vector2((scalefactor * size),(scalefactor * size))
-	$Area2D/CollisionShape2D.scale = Vector2((scalefactor * size),(scalefactor * size))
-	$Circle.scale = Vector2((scalefactor * size),(scalefactor * size))
-	$Circle2.scale = Vector2((scalefactor * size),(scalefactor * size))
+	var setscale = Vector2((scalefactor * size),(scalefactor * size))
+	$CollisionShape2D.scale = setscale
+	$Area2D/CollisionShape2D.scale = setscale
+	$Circle.scale = setscale
+	$Circle2.scale = setscale
 	for i in $Area2D.get_overlapping_areas():
 		if i.is_in_group("Bacterium"):
 			testsize += 1
 		if i.is_in_group("Wall"):
 			self.queue_free()
+		if i.is_in_group("Bullet"):
+			hp -=1
+			i.queue_free()
 	if testsize > size and testsize <= 6:
 		size = testsize
-	startingtime = size ** 2
+		hp = maxhp
+	startingtime = size * 1.6
+	if hp < 0:
+		queue_free()
 
 func _ready():
+	hp = maxhp
 	startingtime = $SpawnTimer.wait_time
 
 func spawn():

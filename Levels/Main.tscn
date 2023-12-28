@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://30cnssvqouh4"]
+
+[ext_resource type="PackedScene" uid="uid://7ijo3fqa0b81" path="res://Reuse/Player.tscn" id="1_8rff0"]
+[ext_resource type="Script" path="res://Scripts/CameraChanger.gd" id="1_v3usy"]
+
+[node name="Main Scene" type="Node2D"]
+
+[node name="Collision" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collision"]
+
+[node name="Polygon2D4" type="CollisionPolygon2D" parent="Collision/StaticBody2D"]
+position = Vector2(1912, 1088)
+rotation = 3.14159
+polygon = PackedVector2Array(55.9999, 704, 55.9999, 1024, 1848, 1024, 1848, 704, 2040, 704, 2040, 1216, -136, 1216, -136, 704)
+
+[node name="Polygon2D5" type="CollisionPolygon2D" parent="Collision/StaticBody2D"]
+rotation = 6.28319
+polygon = PackedVector2Array(64, 704, 64, 1024, 1856, 1024, 1856, 704, 2048, 704, 2048, 1216, -128, 1216, -128, 704)
+
+[node name="Polygon2D6" type="CollisionPolygon2D" parent="Collision/StaticBody2D"]
+position = Vector2(-72, 1088)
+rotation = 3.14159
+polygon = PackedVector2Array(55.9999, 1024, 1848, 1024, 1848, 64.0002, 56, 64, 56, -128, 2040, -128, 2040, 1216, 55.9999, 1216)
+
+[node name="Polygon2D7" type="CollisionPolygon2D" parent="Collision/StaticBody2D"]
+position = Vector2(1992, 0)
+rotation = 6.28319
+polygon = PackedVector2Array(55.9999, 1024, 1848, 1024, 1848, 64.0002, 56, 64, 56, -128, 2040, -128, 2040, 1216, 55.9999, 1216)
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -2
+
+[node name="Polygon2D" type="Polygon2D" parent="Background"]
+color = Color(0.168627, 0.156863, 0.129412, 1)
+polygon = PackedVector2Array(-15112, -9848, -15312, 12144, 18216, 11544, 17488, -10144)
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D2" type="Polygon2D" parent="Background"]
+color = Color(0.0823529, 0.0784314, 0.0588235, 1)
+polygon = PackedVector2Array(64, 704, 64, 1024, 1856, 1024, 1856, 704, 2048, 704, 2048, 1216, -128, 1216, -128, 704)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Background"]
+position = Vector2(1912, 1088)
+rotation = -3.14159
+color = Color(0.0823529, 0.0784314, 0.0588235, 1)
+polygon = PackedVector2Array(55.9999, 704, 55.9999, 1024, 1848, 1024, 1848, 704, 2040, 704, 2040, 1216, -136, 1216, -136, 704)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Background"]
+position = Vector2(-72, 1088)
+rotation = -3.14159
+color = Color(0.0823529, 0.0784314, 0.0588235, 1)
+polygon = PackedVector2Array(55.9999, 1024, 1848, 1024, 1848, 64.0002, 56, 64, 56, -128, 2040, -128, 2040, 1216, 55.9999, 1216)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Background"]
+position = Vector2(1992, 0)
+color = Color(0.0823529, 0.0784314, 0.0588235, 1)
+polygon = PackedVector2Array(55.9999, 1024, 1848, 1024, 1848, 64.0002, 56, 64, 56, -128, 2040, -128, 2040, 1216, 55.9999, 1216)
+
+[node name="Cameras" type="Node2D" parent="."]
+
+[node name="MainRoom" type="Camera2D" parent="Cameras"]
+position = Vector2(960, 544)
+
+[node name="Shop1" type="Camera2D" parent="Cameras"]
+position = Vector2(-1024, 544)
+
+[node name="Shop2" type="Camera2D" parent="Cameras"]
+position = Vector2(2944, 544)
+
+[node name="Checkers" type="Node2D" parent="."]
+
+[node name="MtS1" type="Area2D" parent="Checkers"]
+collision_layer = 12
+collision_mask = 9
+script = ExtResource("1_v3usy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Checkers/MtS1"]
+position = Vector2(-160, 0)
+polygon = PackedVector2Array(64, 384, 32, 384, 32, 704, 64, 704)
+
+[node name="Player" parent="." instance=ExtResource("1_8rff0")]
+position = Vector2(864, 496)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="area_entered" from="Checkers/MtS1" to="Checkers/MtS1" method="_on_area_entered"]
+[connection signal="body_entered" from="Checkers/MtS1" to="Checkers/MtS1" method="_on_body_entered"]

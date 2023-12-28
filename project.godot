@@ -13,10 +13,18 @@ config_version=5
 config/name="PrimitiveShapesJam"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 
+[autoload]
+
+DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg")
 
 [file_customization]
 
@@ -31,8 +39,8 @@ folder_colors={
 2d_physics/layer_1="Player and Enemy"
 2d_physics/layer_2="Bullet"
 2d_physics/layer_3="Walls"
+2d_physics/layer_4="Hitboxes"
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

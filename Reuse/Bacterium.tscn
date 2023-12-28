@@ -9,7 +9,7 @@ radius = 6.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_psmq0"]
 
 [node name="Bacterium" type="RigidBody2D" groups=["Bacterium"]]
-collision_mask = 7
+collision_mask = 15
 mass = 1000.0
 gravity_scale = 0.0
 max_contacts_reported = 15
@@ -30,7 +30,7 @@ one_shot = true
 autostart = true
 
 [node name="Age" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 7.3
 one_shot = true
 autostart = true
 
@@ -44,8 +44,8 @@ gizmo_extents = 8.0
 BodyColor = "#e0c872"
 
 [node name="Area2D" type="Area2D" parent="." groups=["Bacterium"]]
-collision_layer = 4
-collision_mask = 12
+collision_layer = 9
+collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_psmq0")

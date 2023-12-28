@@ -1,18 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://ujeywofp2uv3"]
+[gd_scene load_steps=5 format=3 uid="uid://ujeywofp2uv3"]
 
 [ext_resource type="Script" path="res://Scripts/Water.gd" id="1_lyf2k"]
 [ext_resource type="PackedScene" uid="uid://cnn5yni2ejv5e" path="res://Reuse/Polygon.tscn" id="1_svyhi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hhve"]
-size = Vector2(8, 8)
+size = Vector2(12, 12)
 
-[node name="Water" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 5
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_506me"]
+size = Vector2(16, 16)
+
+[node name="Water" type="CharacterBody2D" groups=["Bullet"]]
+modulate = Color(1.2, 1.2, 1.2, 1)
+collision_layer = 10
+collision_mask = 12
 script = ExtResource("1_lyf2k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2hhve")
+disabled = true
+
+[node name="Polygon2" parent="." instance=ExtResource("1_svyhi")]
+gizmo_extents = 8.0
+Sides = 4
+
+[node name="Shape" parent="Polygon2" index="0"]
+color = Color(0.141176, 0.239216, 0.360784, 1)
 
 [node name="Polygon" parent="." instance=ExtResource("1_svyhi")]
 gizmo_extents = 6.0
@@ -21,4 +33,14 @@ Sides = 4
 [node name="Shape" parent="Polygon" index="0"]
 color = Color(0.360784, 0.545098, 0.576471, 1)
 
+[node name="Area2D" type="Area2D" parent="." groups=["Bullet"]]
+collision_layer = 10
+collision_mask = 14
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_506me")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+
+[editable path="Polygon2"]
 [editable path="Polygon"]
