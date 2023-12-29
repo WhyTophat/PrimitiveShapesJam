@@ -31,13 +31,13 @@ func _process(delta):
 	if testsize > size and testsize <= 6:
 		size = testsize
 		hp = maxhp
-	startingtime = size * 1.6
+	startingtime = size * 2
 	if hp < 0:
 		queue_free()
 
 func _ready():
 	hp = maxhp
-	startingtime = size * 1.6
+	startingtime = size * 1.4
 
 func spawn():
 	var spawntimerrng = rng.randf_range(-1, 1)

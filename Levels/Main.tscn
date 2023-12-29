@@ -64,10 +64,10 @@ polygon = PackedVector2Array(55.9999, 1024, 1848, 1024, 1848, 64.0002, 56, 64, 5
 [node name="MainRoom" type="Camera2D" parent="Cameras"]
 position = Vector2(960, 544)
 
-[node name="Shop1" type="Camera2D" parent="Cameras"]
+[node name="Weapons" type="Camera2D" parent="Cameras"]
 position = Vector2(-1024, 544)
 
-[node name="Shop2" type="Camera2D" parent="Cameras"]
+[node name="Pathogens" type="Camera2D" parent="Cameras"]
 position = Vector2(2944, 544)
 
 [node name="Checkers" type="Node2D" parent="."]
@@ -76,10 +76,24 @@ position = Vector2(2944, 544)
 collision_layer = 12
 collision_mask = 9
 script = ExtResource("1_v3usy")
+CameraName = "Weapons"
+Enabler = "MtS2"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Checkers/MtS1"]
 position = Vector2(-160, 0)
-polygon = PackedVector2Array(64, 384, 32, 384, 32, 704, 64, 704)
+polygon = PackedVector2Array(40, 384, 32, 384, 32, 704, 40, 704)
+
+[node name="MtS2" type="Area2D" parent="Checkers"]
+position = Vector2(160, 0)
+collision_layer = 12
+collision_mask = 9
+script = ExtResource("1_v3usy")
+CameraName = "MainRoom"
+Enabler = "MtS1"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Checkers/MtS2"]
+position = Vector2(-160, 0)
+polygon = PackedVector2Array(64, 384, 56, 384, 56, 704, 64, 704)
 
 [node name="Player" parent="." instance=ExtResource("1_8rff0")]
 position = Vector2(864, 496)
@@ -88,3 +102,5 @@ position = Vector2(864, 496)
 
 [connection signal="area_entered" from="Checkers/MtS1" to="Checkers/MtS1" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkers/MtS1" to="Checkers/MtS1" method="_on_body_entered"]
+[connection signal="area_entered" from="Checkers/MtS2" to="Checkers/MtS2" method="_on_area_entered"]
+[connection signal="body_entered" from="Checkers/MtS2" to="Checkers/MtS2" method="_on_body_entered"]
