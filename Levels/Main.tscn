@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://30cnssvqouh4"]
+[gd_scene load_steps=6 format=3 uid="uid://30cnssvqouh4"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_7gwh4"]
 [ext_resource type="PackedScene" uid="uid://7ijo3fqa0b81" path="res://Reuse/Player.tscn" id="1_8rff0"]
-[ext_resource type="Script" path="res://Scripts/CameraChanger.gd" id="1_v3usy"]
+[ext_resource type="PackedScene" uid="uid://bwtnhuknl3iax" path="res://Reuse/Circle.tscn" id="2_tuasr"]
+[ext_resource type="PackedScene" uid="uid://bjb5d1tt5cof0" path="res://Reuse/Bacterium.tscn" id="4_d8qoc"]
+[ext_resource type="PackedScene" uid="uid://61vah7y3jd32" path="res://Reuse/Bacteria.tscn" id="5_4xs28"]
 
 [node name="Main Scene" type="Node2D"]
 script = ExtResource("1_7gwh4")
@@ -10,97 +12,199 @@ script = ExtResource("1_7gwh4")
 [node name="Collision" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Collision"]
-
-[node name="Polygon2D4" type="CollisionPolygon2D" parent="Collision/StaticBody2D"]
-position = Vector2(1912, 1088)
-rotation = 3.14159
-polygon = PackedVector2Array(55.9999, 704, 55.9999, 1024, 1848, 1024, 1848, 704, 2040, 704, 2040, 1216, -136, 1216, -136, 704)
+collision_layer = 4
+collision_mask = 15
 
 [node name="Polygon2D5" type="CollisionPolygon2D" parent="Collision/StaticBody2D"]
 rotation = 6.28319
-polygon = PackedVector2Array(64, 704, 64, 1024, 1856, 1024, 1856, 704, 2048, 704, 2048, 1216, -128, 1216, -128, 704)
+polygon = PackedVector2Array(64.0003, 63.9997, 64, 1024, 1856, 1024, 1856, 63.9917, 960, 63.9957, 959.999, -128.004, 2048, -128.009, 2048, 1216, -128, 1216, -128.001, -127.999, 959.999, -128.004, 960, 63.9957)
 
-[node name="Polygon2D6" type="CollisionPolygon2D" parent="Collision/StaticBody2D"]
-position = Vector2(-72, 1088)
-rotation = 3.14159
-polygon = PackedVector2Array(55.9999, 1024, 1848, 1024, 1848, 64.0002, 56, 64, 56, -128, 2040, -128, 2040, 1216, 55.9999, 1216)
+[node name="StaticBody2D2" type="StaticBody2D" parent="Collision"]
+collision_layer = 4
+collision_mask = 15
 
-[node name="Polygon2D7" type="CollisionPolygon2D" parent="Collision/StaticBody2D"]
-position = Vector2(1992, 0)
-rotation = 6.28319
-polygon = PackedVector2Array(55.9999, 1024, 1848, 1024, 1848, 64.0002, 56, 64, 56, -128, 2040, -128, 2040, 1216, 55.9999, 1216)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision/StaticBody2D2"]
+position = Vector2(-1024, -800)
+scale = Vector2(1.17, 1.17)
+polygon = PackedVector2Array(410.256, 0, 464.957, 0, 403.419, -355.556, 0, -458.12, -458.12, -355.556, -512.82, 54.7009, -294.017, 430.769, -6.83759, 512.82, 471.795, 423.932, 464.957, 0, 410.256, 0, 408.547, 36.7521, 402.564, 80.3419, 380.342, 156.41, 343.59, 225.641, 294.872, 286.325, 246.154, 326.496, 193.162, 362.393, 153.846, 380.342, 74.3589, 404.273, -0.854675, 411.111, -83.7607, 402.564, -157.265, 379.487, -215.385, 348.718, -271.795, 306.838, -316.239, 262.393, -354.701, 205.983, -382.051, 150.427, -397.436, 99.1453, -408.547, 28.2051, -409.402, -22.2222, -403.419, -76.9231, -386.325, -139.316, -350.427, -213.675, -308.547, -270.086, -262.393, -315.385, -213.675, -350.427, -157.265, -380.342, -105.128, -395.727, -49.5726, -405.983, -5.98291, -409.402, 54.7009, -405.983, 111.111, -394.872, 164.103, -376.923, 215.385, -349.573, 261.538, -317.094, 329.06, -246.154, 356.41, -200, 377.778, -155.556, 394.872, -108.547, 406.838, -56.4103)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Collision"]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision/StaticBody2D4"]
+position = Vector2(-1024, -800)
+scale = Vector2(1.17, 1.17)
+polygon = PackedVector2Array(1401.71, 902.564, 1395.73, 867.521, 1376.92, 839.316, 1346.15, 818.803, 1312.82, 813.675, 1279.49, 817.949, 1249.57, 838.462, 1230.77, 864.957, 1223.93, 902.564, 1228.21, 932.479, 1246.15, 963.248, 1274.36, 984.615, 1312.82, 991.453, 1347.86, 985.47, 1378.63, 964.957, 1396.58, 935.897)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Collision"]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision/StaticBody2D5"]
+position = Vector2(-1024, -800)
+scale = Vector2(1.17, 1.17)
+polygon = PackedVector2Array(1531.62, 1449.57, 1859.83, 1449.57, 1894.02, 1497.44, 1894.02, 1552.14, 1859.83, 1558.97, 1531.62, 1558.97)
+
+[node name="Checkers" type="Node2D" parent="."]
+
+[node name="BacteriaWall" type="Area2D" parent="Checkers" groups=["Wall"]]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Checkers/BacteriaWall"]
+position = Vector2(-1024, -800)
+scale = Vector2(1.17, 1.17)
+polygon = PackedVector2Array(410.256, 0, 464.957, 0, 403.419, -355.556, 0, -458.12, -458.12, -355.556, -512.82, 54.7009, -294.017, 430.769, -6.83759, 512.82, 471.795, 423.932, 464.957, 0, 410.256, 0, 408.547, 36.7521, 402.564, 80.3419, 380.342, 156.41, 343.59, 225.641, 294.872, 286.325, 246.154, 326.496, 193.162, 362.393, 153.846, 380.342, 74.3589, 404.273, -0.854675, 411.111, -83.7607, 402.564, -157.265, 379.487, -215.385, 348.718, -271.795, 306.838, -316.239, 262.393, -354.701, 205.983, -382.051, 150.427, -397.436, 99.1453, -408.547, 28.2051, -409.402, -22.2222, -403.419, -76.9231, -386.325, -139.316, -350.427, -213.675, -308.547, -270.086, -262.393, -315.385, -213.675, -350.427, -157.265, -380.342, -105.128, -395.727, -49.5726, -405.983, -5.98291, -409.402, 54.7009, -405.983, 111.111, -394.872, 164.103, -376.923, 215.385, -349.573, 261.538, -317.094, 329.06, -246.154, 356.41, -200, 377.778, -155.556, 394.872, -108.547, 406.838, -56.4103)
+
+[node name="BacteriaTable" type="Area2D" parent="Checkers" groups=["Wall"]]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Checkers/BacteriaTable"]
+position = Vector2(-1024, -800)
+scale = Vector2(1.17, 1.17)
+polygon = PackedVector2Array(1230.77, 813.675, 1312.82, 786.325, 1401.71, 813.675, 1429.06, 875.214, 1422.22, 1046.15, 1367.52, 1066.67, 1258.12, 1066.67, 1203.42, 1046.15, 1196.58, 875.214)
+
+[node name="Computer" type="Area2D" parent="Checkers" groups=["Wall"]]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Checkers/Computer"]
+position = Vector2(-1024, -800)
+scale = Vector2(1.17, 1.17)
+polygon = PackedVector2Array(1531.62, 1367.52, 1531.62, 1558.97, 1859.83, 1558.97, 1859.83, 1367.52)
 
 [node name="Background" type="Node2D" parent="."]
 z_index = -2
 
+[node name="Circle" parent="Background" instance=ExtResource("2_tuasr")]
+z_index = 1
+position = Vector2(-1024, -800)
+gizmo_extents = 480.0
+BodyColor = "#2b2821"
+
+[node name="Polygon2D" type="Polygon2D" parent="Background/Circle"]
+show_behind_parent = true
+position = Vector2(-16, 0)
+color = Color(0.0784314, 0.0784314, 0.054902, 1)
+polygon = PackedVector2Array(-1080, -672, -1080, 672, 1024, 672, 1024, -672)
+
+[node name="Circle2" parent="Background" instance=ExtResource("2_tuasr")]
+position = Vector2(512, 256)
+gizmo_extents = 105.0
+BodyColor = "#e3cfb4"
+
+[node name="Circle3" parent="Background/Circle2" instance=ExtResource("2_tuasr")]
+gizmo_extents = 20.0
+BodyColor = "#2b2821"
+
+[node name="Circle4" parent="Background/Circle2/Circle3" instance=ExtResource("2_tuasr")]
+gizmo_extents = 10.0
+BodyColor = "#d4804d"
+
+[node name="Circle3" parent="Background" instance=ExtResource("2_tuasr")]
+position = Vector2(960, 256)
+gizmo_extents = 105.0
+BodyColor = "#e3cfb4"
+
+[node name="Circle3" parent="Background/Circle3" instance=ExtResource("2_tuasr")]
+gizmo_extents = 20.0
+BodyColor = "#2b2821"
+
+[node name="Circle4" parent="Background/Circle3/Circle3" instance=ExtResource("2_tuasr")]
+gizmo_extents = 10.0
+BodyColor = "#d4804d"
+
+[node name="Circle4" parent="Background" instance=ExtResource("2_tuasr")]
+position = Vector2(1408, 256)
+gizmo_extents = 105.0
+BodyColor = "#e3cfb4"
+
+[node name="Circle3" parent="Background/Circle4" instance=ExtResource("2_tuasr")]
+gizmo_extents = 20.0
+BodyColor = "#2b2821"
+
+[node name="Circle4" parent="Background/Circle4/Circle3" instance=ExtResource("2_tuasr")]
+gizmo_extents = 10.0
+BodyColor = "#d4804d"
+
 [node name="Polygon2D" type="Polygon2D" parent="Background"]
+z_index = -3
 color = Color(0.168627, 0.156863, 0.129412, 1)
 polygon = PackedVector2Array(-15112, -9848, -15312, 12144, 18216, 11544, 17488, -10144)
 metadata/_edit_lock_ = true
 
 [node name="Polygon2D2" type="Polygon2D" parent="Background"]
 color = Color(0.0823529, 0.0784314, 0.0588235, 1)
-polygon = PackedVector2Array(64, 704, 64, 1024, 1856, 1024, 1856, 704, 2048, 704, 2048, 1216, -128, 1216, -128, 704)
+polygon = PackedVector2Array(64, 64, 64, 1024, 1856, 1024, 1856, 64, 960, 64, 960, -128, 2048, -128, 2048, 1216, -128, 1216, -128, -128, 960, -128, 960, 64)
 
 [node name="Polygon2D3" type="Polygon2D" parent="Background"]
-position = Vector2(1912, 1088)
-rotation = -3.14159
-color = Color(0.0823529, 0.0784314, 0.0588235, 1)
-polygon = PackedVector2Array(55.9999, 704, 55.9999, 1024, 1848, 1024, 1848, 704, 2040, 704, 2040, 1216, -136, 1216, -136, 704)
+position = Vector2(0, 64)
+color = Color(0.890196, 0.811765, 0.705882, 1)
+polygon = PackedVector2Array(768, 960, 1152, 960, 1152, 832, 768, 832)
 
 [node name="Polygon2D4" type="Polygon2D" parent="Background"]
-position = Vector2(-72, 1088)
-rotation = -3.14159
-color = Color(0.0823529, 0.0784314, 0.0588235, 1)
-polygon = PackedVector2Array(55.9999, 1024, 1848, 1024, 1848, 64.0002, 56, 64, 56, -128, 2040, -128, 2040, 1216, 55.9999, 1216)
+position = Vector2(64, 64)
+color = Color(0.0784314, 0.0784314, 0.054902, 1)
+polygon = PackedVector2Array(904, 848, 904, 872, 960, 872, 960, 848)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Background"]
+position = Vector2(-88, 72)
+color = Color(0.0784314, 0.0784314, 0.054902, 1)
+polygon = PackedVector2Array(1000, 848, 1000, 872, 1016, 872, 1016, 848)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Background"]
+position = Vector2(224, 80)
+color = Color(0.0784314, 0.0784314, 0.054902, 1)
+polygon = PackedVector2Array(936, 872, 936, 936, 968, 936, 968, 872)
 
 [node name="Polygon2D5" type="Polygon2D" parent="Background"]
-position = Vector2(1992, 0)
-color = Color(0.0823529, 0.0784314, 0.0588235, 1)
-polygon = PackedVector2Array(55.9999, 1024, 1848, 1024, 1848, 64.0002, 56, 64, 56, -128, 2040, -128, 2040, 1216, 55.9999, 1216)
+position = Vector2(0, 64)
+color = Color(0.0784314, 0.0784314, 0.054902, 1)
+polygon = PackedVector2Array(936, 888, 936, 936, 1000, 936, 1000, 888)
 
 [node name="Cameras" type="Node2D" parent="."]
 
-[node name="MainRoom" type="Camera2D" parent="Cameras"]
+[node name="Camera" type="Camera2D" parent="Cameras"]
 position = Vector2(960, 544)
 
-[node name="Weapons" type="Camera2D" parent="Cameras"]
-position = Vector2(-1024, 544)
+[node name="Bacteria Culture" parent="." instance=ExtResource("5_4xs28")]
+process_mode = 4
 
-[node name="Pathogens" type="Camera2D" parent="Cameras"]
-position = Vector2(2944, 544)
+[node name="Bacterium" parent="Bacteria Culture" index="0"]
+position = Vector2(-720, -816)
 
-[node name="Checkers" type="Node2D" parent="."]
+[node name="Bacterium2" parent="Bacteria Culture" index="1"]
+position = Vector2(-704, -800)
 
-[node name="MtS1" type="Area2D" parent="Checkers"]
-collision_layer = 12
-collision_mask = 9
-script = ExtResource("1_v3usy")
-CameraName = "Weapons"
-Enabler = "MtS2"
+[node name="Bacterium3" parent="Bacteria Culture" index="2"]
+position = Vector2(-688, -816)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Checkers/MtS1"]
-position = Vector2(-160, 0)
-polygon = PackedVector2Array(40, 384, 32, 384, 32, 704, 40, 704)
+[node name="Bacterium4" parent="Bacteria Culture" index="3"]
+position = Vector2(-720, -784)
 
-[node name="MtS2" type="Area2D" parent="Checkers"]
-position = Vector2(160, 0)
-collision_layer = 12
-collision_mask = 9
-script = ExtResource("1_v3usy")
-CameraName = "MainRoom"
-Enabler = "MtS1"
+[node name="Bacterium5" parent="Bacteria Culture" index="4"]
+position = Vector2(-688, -784)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Checkers/MtS2"]
-position = Vector2(-160, 0)
-polygon = PackedVector2Array(64, 384, 56, 384, 56, 704, 64, 704)
+[node name="Bacterium16" parent="Bacteria Culture" instance=ExtResource("4_d8qoc")]
+position = Vector2(-1040, -496)
+
+[node name="Bacterium17" parent="Bacteria Culture" instance=ExtResource("4_d8qoc")]
+position = Vector2(-1024, -480)
+
+[node name="Bacterium18" parent="Bacteria Culture" instance=ExtResource("4_d8qoc")]
+position = Vector2(-1008, -496)
+
+[node name="Bacterium19" parent="Bacteria Culture" instance=ExtResource("4_d8qoc")]
+position = Vector2(-1040, -464)
+
+[node name="Bacterium20" parent="Bacteria Culture" instance=ExtResource("4_d8qoc")]
+position = Vector2(-1008, -464)
 
 [node name="Player" parent="." instance=ExtResource("1_8rff0")]
-position = Vector2(864, 496)
+position = Vector2(960, 704)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[connection signal="area_entered" from="Checkers/MtS1" to="Checkers/MtS1" method="_on_area_entered"]
-[connection signal="body_entered" from="Checkers/MtS1" to="Checkers/MtS1" method="_on_body_entered"]
-[connection signal="area_entered" from="Checkers/MtS2" to="Checkers/MtS2" method="_on_area_entered"]
-[connection signal="body_entered" from="Checkers/MtS2" to="Checkers/MtS2" method="_on_body_entered"]
+[editable path="Bacteria Culture"]

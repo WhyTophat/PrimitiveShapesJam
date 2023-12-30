@@ -6,7 +6,7 @@ var canshoot = true
 @export var Refresh = false
 
 @export_category("Player Stats")
-@export var Topspeed = 300
+@export var Topspeed = 450
 @export var Accel = 50
 @export var Firerate = .15
 

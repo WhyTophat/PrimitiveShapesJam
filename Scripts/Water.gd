@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var speed = 7
+var speed = 10
 
-func _process(delta):
+func _physics_process(delta):
 	velocity = Vector2(speed,0).rotated(rotation)
 	move_and_collide(velocity)
 
